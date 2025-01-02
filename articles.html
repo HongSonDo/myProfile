@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script>
+        // Mảng chứa các đường link bài báo
+        const articleLinks = [
+            "https://www.tinnhanhchungkhoan.vn/bai-hoc-tu-hai-vu-kien-bao-hiem-lon-post360010.html?fbclid=IwY2xjawHjmyBleHRuA2FlbQIxMAABHQkFadbFk2kaHM-ObmppQHZKKujGT4hW73YytiZGr606uxJ8fXFZCV0qeg_aem_hrMOFuSGQtlf5_RFvWsNzw",
+            "https://baomoi.com/o-to-bi-set-danh-co-duoc-boi-thuong-bao-hiem-r50012203.epi?fbclid=IwY2xjawHjnEhleHRuA2FlbQIxMAABHbxTA-1jXxqLsmFfZRwA-GfSAd8bb2GiBXxernCdqGOFangkv8faAc4lhw_aem_wcQj-iydVtyAbfZlHjZY0A",
+            "https://www.tinnhanhchungkhoan.vn/vinafco-dang-cung-bao-hiem-bao-vietqbe-phoi-hop-de-bao-lanh-giai-phong-tau-som-nhat-post348498.html?fbclid=IwY2xjawHjnE9leHRuA2FlbQIxMAABHYuAftQVYFwNAxFheQJOSUqWwzeLQd9q4BRRbkYiOGwAAzU1Jr7MTa3F2w_aem_6IYPamT2BDRQycyfjWDH9Q"
+        ];
+
+        let count = 0; // Biến đếm số lần click
+
+        function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            count = parseInt(urlParams.get('article')) - 1 || 0; // Lấy chỉ số bài báo từ URL, nếu không có thì mặc định là bài 1
+            document.getElementById('article-frame').src = articleLinks[count];
+        }
+
+        function nextPage() {
+            if (count < articleLinks.length - 1) {
+                count++;
+                document.getElementById('article-frame').src = articleLinks[count];
+            } else {
+                alert("Bạn đã xem hết các bài báo.");
+            }
+        }
+
+        function goBack() {
+            window.history.back(); // Quay lại trang trước
+        }
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%; /* Chiếm toàn bộ chiều cao của phần tử chứa */
+            border: none;
+        }
+
+        /* Nút mũi tên chuyển trang */
+        .next-page {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .next-page button, .go-back button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .next-page button i, .go-back button i {
+            margin-right: 8px;
+        }
+
+        /* Nút mũi tên trái quay lại */
+        .go-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Điều chỉnh kích thước nút trên màn hình di động */
+        @media (max-width: 768px) {
+            iframe {
+                height: 100vh; /* Chiếm toàn bộ chiều cao màn hình trên di động */
+            }
+
+            .next-page button, .go-back button {
+                padding: 10px 20px;
+                font-size: 16px; /* Điều chỉnh font-size cho màn hình nhỏ */
+            }
+
+            .next-page {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .go-back {
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        /* Nếu màn hình rất nhỏ, như trên điện thoại */
+        @media (max-width: 480px) {
+            iframe {
+                height: 100vh; /* Chiếm toàn bộ chiều cao màn hình điện thoại */
+            }
+
+            .next-page button, .go-back button {
+                padding: 8px 16px;
+                font-size: 14px; /* Giảm font-size cho màn hình nhỏ */
+            }
+        }
+    </style>
+</head>
+<body onload="loadArticle()">
+    <div id="content">
+        <!-- Iframe để hiển thị bài báo -->
+        <iframe id="article-frame" src="" style="border: none;"></iframe>
+    </div>
+    
+    <!-- Nút mũi tên chuyển trang -->
+    <div class="next-page">
+        <button onclick="nextPage()"><i class="fas fa-arrow-right"></i></button>
+    </div>
+    
+    <!-- Nút mũi tên trái để quay lại trang CV -->
+    <div class="go-back" style="position: absolute; top: 20px; left: 20px;">
+        <button onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+    </div>
+</body>
+</html>
