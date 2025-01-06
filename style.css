@@ -1,218 +1,207 @@
-body{
-    background-color: #D5D5D5;
-    font-family: system-ui;
-}
-.container{
-    background-color: #E9E7EA;
-    width:1000px;
-    max-width: 100%;
-    margin:auto;
-    padding:50px;
-    box-shadow: 0 10px 50px #858585;
-    display: grid;
-   grid-template-columns: 35% 60%;
-   column-gap: 5%; 
-   row-gap: 30px;
-}
-
-.avatar img{
-    width:200px;
-    height:200px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-.avatar{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-.name{
-    padding-left: 30px;
-    border-left:1px solid #000;
-}
-.name h1{
-    font-weight: 300;
-    font-size: xxx-large;
-    margin:0px 0 5px ;
-}
-.name .specialize{
-    margin:0;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-.name .contact{
-    padding:0;
-    list-style: none;
-}
-.name .contact span{
-    display: inline-block;
-    background-color: #000;
-    width:20px;
-    height:20px;
-    color:#fff;
-    text-align: center;
-    border-radius: 50%;
-    font-size: small;
-    margin-right: 20px;
-}
-.name .contact li{
-    padding:5px 0;
-    transform: translate(-40px);
-    background-color: #E9E7EA;
-}
-.info ul{
+/* Sidebar và Main Content */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: right;
-    line-height: 30px;
-} 
+    background-color: #f3f3f3;
+}
 
-h2{
-    padding:0;
-    margin: 0 0 20px 0;
+.container {
+    display: flex;
+    max-width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
-.intro{
-    padding-left: 30px;
-    border-left: 1px solid #000;
-    text-align: justify;
+
+/* Sidebar */
+.sidebar {
+    width: 35%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
 }
-.experience{
-    text-align: right;
+
+.sidebar .avatar img {
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 20px;
 }
-.experience h4{
-    margin:20px 0 10px;
+
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
 }
-.skills{
-    margin-top:  50px;
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
 }
-.experience ul{
-    padding:0;
-    margin: 0;
-list-style: none;
+
+.sidebar ul li {
+    margin-bottom: 20px;
+    font-size: 14px;
 }
-.experience li{
-    padding:10px 0;
+
+.sidebar ul li i {
+    margin-right: 10px;
+    color: #ffcc00;
 }
-.project{
-    padding-left: 30px;
-    text-align: justify;
-    border-left: 1px solid #000;
+
+/* Main Content */
+.main-content {
+    width: 65%;
+    padding: 20px;
+    background: #fff;
 }
-.project h4{
-    margin:20px 0 10px;
+
+.main-content .header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
 }
-.project .web{
-    color: #0c7373;
-    padding:10px 0;
+
+.main-content .header p {
+    font-size: 16px;
+    color: #666;
 }
-.project .location{
-    font-weight: 500;
-    padding-bottom:10px;
+
+.main-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    display: inline-block;
+    padding-bottom: 5px;
 }
-.project .item{
-    position: relative;
+
+.main-content .item {
+    margin-bottom: 20px;
 }
-.project .item::before{
-    position: absolute;
-    width:13px;
-    height: 13px;
-    background-color: #000;
-    content: '';
-    border-radius: 50%;
-    left: -37px;
+
+.main-content .item h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
 }
+
+.main-content .item span {
+    display: block;
+    font-size: 14px;
+    color: #666;
+}
+
+.main-content p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Button chuyển trang */
 .next-page {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+    position: fixed; /* Đặt button ở vị trí cố định */
+    top: 20px; /* Cách mép trên 20px */
+    right: 20px; /* Cách mép phải 20px */
+    z-index: 10; /* Đảm bảo nút nằm trên các thành phần khác */
 }
 
 .next-page a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     font-size: 24px;
-    transition: background-color 0.3s, transform 0.2s;
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 .next-page a:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-/* Thiết lập cho iframe, đảm bảo nó chiếm 100% chiều rộng màn hình */
-iframe {
-    width: 100%;
-    height: 500px; /* Có thể thay đổi chiều cao nếu cần */
+    background-color: #333;
+    color: #fff;
 }
 
-/* Nút mũi tên */
-.next-page button, .go-back button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.next-page button i, .go-back button i {
-    margin-right: 8px;
-}
-
-/* Nút mũi tên phải ở góc phải dưới */
-.next-page {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
-/* Nút mũi tên trái ở góc trái trên */
-.go-back {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-/* Đảm bảo nút điều chỉnh kích thước trên màn hình di động */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    iframe {
-        height: 400px; /* Điều chỉnh chiều cao cho màn hình nhỏ hơn */
+    .container {
+        flex-direction: row; /* Giữ bố cục 2 cột */
+        max-width: 100%;
+        margin: 10px;
+        box-shadow: none; /* Loại bỏ đổ bóng cho thiết bị nhỏ */
     }
 
-    .next-page button, .go-back button {
-        padding: 10px 20px;
-        font-size: 16px; /* Điều chỉnh font-size cho màn hình nhỏ */
+    .sidebar, .main-content {
+        width: 50%; /* Chia đều chiều rộng giữa sidebar và content */
+        padding: 15px;
+    }
+
+    .sidebar .avatar img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sidebar ul li {
+        font-size: 13px; /* Thu nhỏ kích thước font chữ */
+        margin-bottom: 15px;
+    }
+
+    .main-content .header h1 {
+        font-size: 22px; /* Giảm kích thước tiêu đề */
+    }
+
+    .main-content .header p {
+        font-size: 14px;
+    }
+
+    .main-content h3 {
+        font-size: 18px;
+    }
+
+    .main-content .item h4 {
+        font-size: 16px;
+    }
+
+    .main-content p {
+        font-size: 13px;
     }
 
     .next-page {
-        bottom: 10px;
-        right: 10px;
-    }
-
-    .go-back {
-        top: 10px;
-        left: 10px;
+        top: 10px; /* Giảm khoảng cách từ trên cùng */
+        right: 10px; /* Giảm khoảng cách từ bên phải */
     }
 }
 
-/* Nếu màn hình rất nhỏ, như trên điện thoại */
+/* For Very Small Screens (Phones < 480px) */
 @media (max-width: 480px) {
-    iframe {
-        height: 300px; /* Điều chỉnh chiều cao cho điện thoại */
+    .sidebar, .main-content {
+        width: 100%; /* Mỗi phần chiếm toàn bộ chiều rộng màn hình */
+        padding: 10px;
     }
 
-    .next-page button, .go-back button {
-        padding: 8px 16px;
-        font-size: 14px; /* Giảm font-size cho màn hình nhỏ */
+    .sidebar h3 {
+        font-size: 16px; /* Thu nhỏ tiêu đề */
+    }
+
+    .sidebar ul li {
+        font-size: 11px; /* Thu nhỏ kích thước font chữ */
+    }
+
+    .main-content .header h1 {
+        font-size: 20px;
+    }
+
+    .main-content h3 {
+        font-size: 16px;
+    }
+
+    .main-content p {
+        font-size: 12px;
+    }
+
+    .next-page a {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .next-page {
+        top: 10px; /* Giảm khoảng cách từ trên cùng */
+        right: 10px; /* Giảm khoảng cách từ bên phải */
     }
 }
