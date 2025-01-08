@@ -1,207 +1,151 @@
-/* Sidebar và Main Content */
+/* Tổng thể */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f3f3f3;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2e3440; /* Nền xám đậm */
+  color: #eceff4; /* Chữ trắng xám */
 }
 
+/* Container */
 .container {
-    display: flex;
-    max-width: 1000px;
-    margin: 20px auto;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background: #fff;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #3b4252; /* Xám tối */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Hiệu ứng bóng */
+  border-radius: 8px; /* Bo góc */
 }
 
-/* Sidebar */
-.sidebar {
-    width: 35%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+/* Hồ sơ */
+.profile {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eceff4; /* Viền trắng nhạt */
 }
 
-.sidebar .avatar img {
-    width: 100%;
-    border-radius: 0;
-    margin-bottom: 20px;
-}
-
-.sidebar h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 5px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-.sidebar ul li i {
-    margin-right: 10px;
-    color: #ffcc00;
-}
-
-/* Main Content */
-.main-content {
-    width: 65%;
-    padding: 20px;
-    background: #fff;
-}
-
-.main-content .header h1 {
-    font-size: 28px;
-    margin-bottom: 5px;
-}
-
-.main-content .header p {
-    font-size: 16px;
-    color: #666;
-}
-
-.main-content h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #333;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-.main-content .item {
-    margin-bottom: 20px;
-}
-
-.main-content .item h4 {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.main-content .item span {
-    display: block;
-    font-size: 14px;
-    color: #666;
-}
-
-.main-content p {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* Button chuyển trang */
 .next-page {
-    position: fixed; /* Đặt button ở vị trí cố định */
-    top: 20px; /* Cách mép trên 20px */
-    right: 20px; /* Cách mép phải 20px */
-    z-index: 10; /* Đảm bảo nút nằm trên các thành phần khác */
+  position: fixed; /* Giữ vị trí cố định */
+  top: 10px; /* Cách phía trên 10px */
+  right: 10px; /* Cách phía phải 10px */
+  color: #eceff4; /* Chữ trắng xám */
+  padding: 10px 20px; /* Khoảng cách bên trong nút */
+  border: none; /* Loại bỏ viền */
+  border-radius: 5px; /* Bo góc */
+  font-size: 14px; /* Cỡ chữ */
+  font-weight: bold; /* Chữ đậm */
+}
+.avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #81a1c1; /* Viền xanh lam dịu */
+  margin-bottom: 15px;
 }
 
-.next-page a {
-    text-decoration: none;
-    font-size: 24px;
-    color: #333;
-    padding: 10px 20px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    transition: 0.3s;
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #81a1c1; /* Chữ xanh lam dịu */
 }
 
-.next-page a:hover {
-    background-color: #333;
-    color: #fff;
+.header h4 {
+  font-size: 18px;
+  color: #88c0d0; /* Xanh lam nhạt */
 }
 
-/* Responsive Adjustments */
+/* Giới thiệu */
+.intro {
+  margin-top: 20px;
+}
+
+.intro h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #eceff4; /* Chữ trắng xám */
+  border-bottom: 2px solid #81a1c1; /* Gạch chân xanh lam dịu */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.intro p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d8dee9; /* Xám nhạt */
+}
+
+/* Nội dung */
+.content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #eceff4; /* Chữ trắng xám */
+  border-bottom: 2px solid #81a1c1; /* Gạch chân xanh lam dịu */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #d8dee9; /* Xám nhạt */
+}
+.skills ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #d8dee9; /* Xám nhạt */
+}
+.education ul li {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #d8dee9; /* Xám nhạt */
+}
+.content ul li i {
+  margin-right: 10px;
+  color: #ebcb8b; /* Màu vàng */
+}
+
+/* Kinh nghiệm */
+.experience .item {
+  margin-bottom: 15px;
+}
+
+.experience .item h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #88c0d0; /* Xanh lam nhạt */
+}
+
+.experience .item p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d8dee9; /* Xám nhạt */
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: row; /* Giữ bố cục 2 cột */
-        max-width: 100%;
-        margin: 10px;
-        box-shadow: none; /* Loại bỏ đổ bóng cho thiết bị nhỏ */
-    }
+  .container {
+      padding: 10px;
+  }
 
-    .sidebar, .main-content {
-        width: 50%; /* Chia đều chiều rộng giữa sidebar và content */
-        padding: 15px;
-    }
+  .avatar img {
+      width: 100px;
+      height: 100px;
+  }
 
-    .sidebar .avatar img {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
+  .header h1 {
+      font-size: 20px;
+  }
 
-    .sidebar ul li {
-        font-size: 13px; /* Thu nhỏ kích thước font chữ */
-        margin-bottom: 15px;
-    }
+  .intro h3, .content h3 {
+      font-size: 18px;
+  }
 
-    .main-content .header h1 {
-        font-size: 22px; /* Giảm kích thước tiêu đề */
-    }
-
-    .main-content .header p {
-        font-size: 14px;
-    }
-
-    .main-content h3 {
-        font-size: 18px;
-    }
-
-    .main-content .item h4 {
-        font-size: 16px;
-    }
-
-    .main-content p {
-        font-size: 13px;
-    }
-
-    .next-page {
-        top: 10px; /* Giảm khoảng cách từ trên cùng */
-        right: 10px; /* Giảm khoảng cách từ bên phải */
-    }
-}
-
-/* For Very Small Screens (Phones < 480px) */
-@media (max-width: 480px) {
-    .sidebar, .main-content {
-        width: 100%; /* Mỗi phần chiếm toàn bộ chiều rộng màn hình */
-        padding: 10px;
-    }
-
-    .sidebar h3 {
-        font-size: 16px; /* Thu nhỏ tiêu đề */
-    }
-
-    .sidebar ul li {
-        font-size: 11px; /* Thu nhỏ kích thước font chữ */
-    }
-
-    .main-content .header h1 {
-        font-size: 20px;
-    }
-
-    .main-content h3 {
-        font-size: 16px;
-    }
-
-    .main-content p {
-        font-size: 12px;
-    }
-
-    .next-page a {
-        font-size: 18px;
-        padding: 8px 15px;
-    }
-
-    .next-page {
-        top: 10px; /* Giảm khoảng cách từ trên cùng */
-        right: 10px; /* Giảm khoảng cách từ bên phải */
-    }
+  .content ul li {
+      font-size: 13px;
+  }
 }

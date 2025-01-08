@@ -82,27 +82,51 @@
 "https://www.tinnhanhchungkhoan.vn/gian-lan-trong-kinh-doanh-bao-hiem-van-nhuc-nhoi-post227435.html?fbclid=IwY2xjawHmPOJleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g"
         ];
 
-        let count = 0; // Biến đếm số lần click
+        let count = 0; 
 
         function loadArticle() {
             const urlParams = new URLSearchParams(window.location.search);
-            count = parseInt(urlParams.get('article')) - 1 || 0; // Lấy chỉ số bài báo từ URL, nếu không có thì mặc định là bài 1
-            document.getElementById('article-frame').src = articleLinks[count];
+            const articleIndex = parseInt(urlParams.get('article')) || 0; 
+            
+            if (articleIndex === 0) {
+                
+                document.getElementById('article-frame').src = "index.html"; 
+                count = 0;
+            } else {
+                
+                count = Math.max(articleIndex - 1, 0);
+                if (count < articleLinks.length) {
+                    document.getElementById('article-frame').src = articleLinks[count];
+                } else {
+                    alert("Bài báo không tồn tại.");
+                }
+            }
         }
+        
 
         function nextPage() {
             if (count < articleLinks.length - 1) {
                 count++;
                 document.getElementById('article-frame').src = articleLinks[count];
+                window.history.pushState({}, "", `?article=${count + 1}`);
             } else {
                 alert("Bạn đã xem hết các bài báo.");
             }
         }
+        window.addEventListener('popstate', (event) => {
+            loadArticle();
+        });
+        
 
         function goBack() {
-            count--;
-            window.history.back(); // Quay lại trang trước
+            if (count > 0) {
+                count--;
+                document.getElementById('article-frame').src = articleLinks[count];
+            } else {
+                window.location.href = "index.html"; 
+            }
         }
+        
     </script>
     <style>
         html, body {
@@ -192,7 +216,7 @@
     </style>
 </head>
 <body onload="loadArticle()">
-    <div id="content">
+    <div id="content" style="background-color: #ffffff;">
         <!-- Iframe để hiển thị bài báo -->
         <iframe id="article-frame" src="" style="border: none;"></iframe>
     </div>
