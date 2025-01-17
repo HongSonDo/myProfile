@@ -1,234 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đỗ Hồng Sơn</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
     <script>
-        // Mảng chứa các đường link bài báo
-        const articleLinks = [
-            "https://www.tinnhanhchungkhoan.vn/bai-hoc-tu-hai-vu-kien-bao-hiem-lon-post360010.html",
-"https://www.tinnhanhchungkhoan.vn/vinafco-dang-cung-bao-hiem-bao-vietqbe-phoi-hop-de-bao-lanh-giai-phong-tau-som-nhat-post348498.html?fbclid=IwY2xjawHmLp9leHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://www.tinnhanhchungkhoan.vn/vu-phuong-anh-kien-vinafco-vfc-toa-an-hai-phong-ra-quyet-dinh-bat-giu-tau-morning-post348436.html?fbclid=IwY2xjawHmLw1leHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://quochoitv.vn/thuc-hu-chieu-thuc-dung-dat-gan-no-cua-vsetgroup-226930.htm",
-"https://quochoitv.vn/vset-group-chieu-thuc-ve-sau-thoat-xac-226806.htm",
-"https://quochoitv.vn/alo-cu-tri-hang-ngan-nguoi-mat-viec-vi-chinh-quyen-cat-dien-trai-luat-202438.htm",
-"https://antv.gov.vn/video/an-ninh-voi-cuoc-song-19/bien-tuong-tu-van-ban-bao-hiem-qua-ngan-hang-04EC9A334.html?fbclid=IwY2xjawHmMgpleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
-"https://antv.gov.vn/video/an-ninh-voi-cuoc-song/can-trong-bao-hiem-xe-may-gia-re-230771.html?fbclid=IwY2xjawHmO0pleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
-"https://xe.baogiaothong.vn/o-to-bi-set-danh-co-duoc-boi-thuong-bao-hiem-192240827160331992.htm",
-"https://www.tinnhanhchungkhoan.vn/xem-quay-tu-van-bao-hiem-tai-ngan-hang-post345973.html?fbclid=IwY2xjawHmL1NleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://m.tinnhanhchungkhoan.vn/dung-ban-san-pham-bao-hiem-nuoc-di-dang-chang-dung-post345097.amp?fbclid=IwY2xjawHmL3dleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://xe.baogiaothong.vn/tranh-cai-viec-bao-hiem-chi-boi-thuong-sua-xe-sau-tai-nan-192240509222454617.htm?fbclid=IwY2xjawHmL6BleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
-"https://www.tinnhanhchungkhoan.vn/tiep-dien-chieu-tro-mao-danh-bao-hiem-de-lua-dao-post334686.html?fbclid=IwY2xjawHmMBVleHRuA2FlbQIxMAABHT5rsLh6pMDBGK5Bco-0zPFJt9sz9Wkpif1VhxRn-0FkryT-cbUrmC-Z5w_aem_G96mTAupj8RBm53WodGDJA",
-"https://xe.baogiaothong.vn/bao-hiem-bsh-bi-to-chay-y-boi-thuong-sau-vu-o-to-tong-vao-dan-trau-192231130115754674.htm?fbclid=IwY2xjawHmMFtleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
-"https://www.tinnhanhchungkhoan.vn/chua-het-ban-khoan-ban-bao-hiem-lien-ket-dau-tu-post334184.html?fbclid=IwY2xjawHmMKtleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
-"https://vneconomy.vn/khoang-trong-bao-hiem-chay-no-tu-tham-hoa-chung-cu-mini-khuong-ha.htm?fbclid=IwY2xjawHmMNlleHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
-"https://www.tinnhanhchungkhoan.vn/loi-he-thong-trong-ban-bao-hiem-qua-ngan-hang-post329975.html?fbclid=IwY2xjawHmMQNleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://www.tinnhanhchungkhoan.vn/khi-nha-bao-hiem-khong-trung-thuc-post329111.html?fbclid=IwY2xjawHmMSVleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://www.tinnhanhchungkhoan.vn/bi-an-so-lieu-tu-choi-chi-tra-bao-hiem-post323623.html?fbclid=IwY2xjawHmMVRleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://xe.baogiaothong.vn/nguoi-vay-mua-o-to-tra-gop-to-ngan-hang-lam-thu-192589939.htm",
-"https://www.tinnhanhchungkhoan.vn/them-luu-y-ve-hop-dong-bao-hiem-nhan-tho-post320547.html?fbclid=IwY2xjawHmMe5leHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://vnexpress.net/mua-bao-hiem-vi-ca-ne-4592652.html?fbclid=IwY2xjawHmMlFleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
-"https://vnexpress.net/bi-lua-mua-bao-hiem-4591856.html?fbclid=IwY2xjawHmMmlleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://nhipsongdoanhnghiep.laodongcongdoan.vn/dien-vien-ngoc-lan-so-mat-tien-ty-khi-mua-bao-hiem-chuyen-gia-noi-gi-94515.html?fbclid=IwY2xjawHmMopleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://xe.baogiaothong.vn/co-nen-mua-o-to-thanh-ly-tu-ngan-hang-192585752.htm",
-"https://www.youtube.com/embed/pB6s4HWVBOo",
-"https://www.phunuonline.com.vn/vi-sao-xe-bi-ngap-nuoc-bao-hiem-khong-boi-thuong-a1479358.html",
-"https://www.tinnhanhchungkhoan.vn/chua-het-ban-khoan-co-nen-bo-bao-hiem-bat-buoc-xe-may-post306996.html?fbclid=IwY2xjawHmNF9leHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
-"https://www.tinnhanhchungkhoan.vn/doanh-nghiep-bao-hiem-se-phai-cong-khai-them-nhieu-thong-tin-nong-post304624.html?fbclid=IwY2xjawHmNIxleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://www.tinnhanhchungkhoan.vn/can-ghi-ro-hop-dong-bao-hiem-khong-phai-la-hop-dong-gui-tien-post304128.html?fbclid=IwY2xjawHmNTlleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
-"https://www.tinnhanhchungkhoan.vn/cong-ty-bao-hiem-va-van-hoa-chia-tay-dai-ly-post302714.html?fbclid=IwY2xjawHmNZJleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://xe.baogiaothong.vn/loi-dung-34so-0-tuyet-doi34-nong-do-con-bao-hiem-bsh-choi-bo-trach-nhiem-192556965.htm",
-"https://www.tinnhanhchungkhoan.vn/bao-hiem-lien-quan-toi-covid-van-nong-post299101.html?fbclid=IwY2xjawHmNf9leHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
-"https://www.tinnhanhchungkhoan.vn/nha-bao-hiem-van-quen-dieu-khoan-loai-tru-post298469.html?fbclid=IwY2xjawHmNi5leHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://www.tinnhanhchungkhoan.vn/gian-nan-tim-tung-tich-tu-van-vien-post297040.html?fbclid=IwY2xjawHmNpJleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://www.tinnhanhchungkhoan.vn/tranh-cai-bao-hiem-siet-vi-pham-toc-do-post295506.html?fbclid=IwY2xjawHmNqtleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://xe.baogiaothong.vn/cong-ty-bao-hiem-se-tu-choi-bao-hiem-pin-xe-dien-trong-truong-hop-nao-192549647.htm",
-"https://xe.baogiaothong.vn/o-to-dien-duoc-mua-bao-hiem-vat-chat-nhu-xe-truyen-thong-192549240.htm",
-"https://www.tinnhanhchungkhoan.vn/nguoi-mua-bao-hiem-xe-buoc-quen-voi-tach-vu-post291524.html?fbclid=IwY2xjawHmN0BleHRuA2FlbQIxMAABHWmIuJFxvcRjOEYUkUvmuBfk01jS5-JZcS3SJKoZfeRjMPX289Kb4_mOcA_aem_JA-rLm0XYPC4HIImbcyrhA",
-"https://xe.baogiaothong.vn/cho-phep-keo-dai-bao-hiem-cho-xe-phai-34dap-chieu34-do-gian-cach-xa-hoi-192544382.htm",
-"https://www.tinnhanhchungkhoan.vn/bao-hiem-can-co-che-thuong-luong-hoa-giai-chuyen-biet-post287015.html?fbclid=IwY2xjawHmN5JleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
-"https://www.tinnhanhchungkhoan.vn/nhu-cau-su-dung-dich-vu-phu-tro-bao-hiem-rat-cao-post287013.html?fbclid=IwY2xjawHmN6pleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
-"https://www.tinnhanhchungkhoan.vn/nhu-cau-su-dung-dich-vu-phu-tro-bao-hiem-rat-cao-post287013.html",
-"https://xe.baogiaothong.vn/bao-hiem-pjico-ha-nam-bi-khach-hang-khieu-nai-vi-cham-tre-boi-thuong-192527568.htm",
-"https://www.tinnhanhchungkhoan.vn/cong-ty-bao-hiem-se-khong-con-xau-che-tot-khoe-post282051.html?fbclid=IwY2xjawHmOHJleHRuA2FlbQIxMAABHWmIuJFxvcRjOEYUkUvmuBfk01jS5-JZcS3SJKoZfeRjMPX289Kb4_mOcA_aem_JA-rLm0XYPC4HIImbcyrhA",
-"https://www.tinnhanhchungkhoan.vn/de-xuat-nha-nuoc-ho-tro-bao-hiem-vi-mo-post282610.html?fbclid=IwY2xjawHmOKZleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://www.tinnhanhchungkhoan.vn/144-vu-an-bao-hiem-hon-356-ty-dong-cong-ty-bao-hiem-tra-khach-hang-post283307.html?fbclid=IwY2xjawHmOMRleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
-"https://www.tinnhanhchungkhoan.vn/du-thao-luat-kinh-doanh-bao-hiem-sua-doi-bo-quy-dinh-hiep-hoi-quan-ly-dai-ly-bao-hiem-post280840.html?fbclid=IwY2xjawHmOQFleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
-"https://www.tinnhanhchungkhoan.vn/bao-hiem-don-cu-huych-chinh-sach-post280150.html?fbclid=IwY2xjawHmOSxleHRuA2FlbQIxMAABHT5rsLh6pMDBGK5Bco-0zPFJt9sz9Wkpif1VhxRn-0FkryT-cbUrmC-Z5w_aem_G96mTAupj8RBm53WodGDJA",
-"https://xe.baogiaothong.vn/dang-gian-cach-xa-hoi-giam-dinh-vien-bao-hiem-co-duoc-den-hien-truong-192521391.htm",
-"https://www.tinnhanhchungkhoan.vn/than-trong-cac-hinh-thuc-gian-lan-bao-hiem-moi-post276626.html?fbclid=IwY2xjawHmOXhleHRuA2FlbQIxMAABHWmIuJFxvcRjOEYUkUvmuBfk01jS5-JZcS3SJKoZfeRjMPX289Kb4_mOcA_aem_JA-rLm0XYPC4HIImbcyrhA",
-"https://xe.baogiaothong.vn/mua-2-bao-hiem-cho-mot-xe-khi-tai-nan-co-duoc-boi-thuong-gap-doi-192520128.htm",
-"https://xe.baogiaothong.vn/go-noi-oan-bi-tu-choi-boi-thuong-bao-hiem-vi-trong-mau-co-con-192517295.htm",
-"https://www.tinnhanhchungkhoan.vn/lai-ngong-he-thong-du-lieu-chung-bao-hiem-post274660.html?fbclid=IwY2xjawHmOiZleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
-"https://www.tinnhanhchungkhoan.vn/jetcare-lazada-khuyen-mai-bao-hiem-xe-cuc-bao-hiem-len-tieng-post275087.html?fbclid=IwY2xjawHmOkxleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
-"https://xe.baogiaothong.vn/chu-xe-o-to-lien-tiep-khoi-kien-doanh-nghiep-bao-hiem-192514168.htm",
-"https://baodautu.vn/mua-bao-hiem-dien-tu-nhung-van-bi-phat-d139955.html?fbclid=IwY2xjawHmOp5leHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
-"https://www.tinnhanhchungkhoan.vn/uoc-giam-hon-182-ty-dong-phi-bao-hiem-xe-khach-vi-covid-post252440.html?fbclid=IwY2xjawHmOshleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
-"https://www.tinnhanhchungkhoan.vn/dang-sau-nhung-hop-dong-bao-hiem-mo-coi-post253991.html?fbclid=IwY2xjawHmOvlleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://www.tinnhanhchungkhoan.vn/khi-hop-dong-bao-hiem-hieu-sao-cung-duoc-post251784.html?fbclid=IwY2xjawHmOxxleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
-"https://www.tinnhanhchungkhoan.vn/cap-an-chi-bao-hiem-xe-may-online-tai-sao-khong-post240614.html?fbclid=IwY2xjawHmO21leHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
-"https://www.tinnhanhchungkhoan.vn/bao-hiem-xe-may-co-chi-de-doi-pho-post240378.html?fbclid=IwY2xjawHmO45leHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://www.tinnhanhchungkhoan.vn/vics-corp-tien-phong-trong-linh-vuc-phu-tro-bao-hiem-post227477.html?fbclid=IwY2xjawHmO8JleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://www.tinnhanhchungkhoan.vn/thoi-gian-cach-ly-khach-hang-cua-doanh-nghiep-bao-hiem-phi-nhan-tho-co-duoc-giam-hoan-phi-post237543.html?fbclid=IwY2xjawHmO_NleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
-"https://www.tinnhanhchungkhoan.vn/bao-hiem-xe-may-lai-khung-nhung-khong-man-ma-post241150.html?fbclid=IwY2xjawHmPBhleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://znews.vn/cong-ty-bao-hiem-tu-choi-boi-thuong-bao-hiem-via-he-dung-hay-sai-post1086872.html?fbclid=IwY2xjawHmPDpleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
-"https://www.tinnhanhchungkhoan.vn/lieu-co-can-hiep-hoi-phu-tro-bao-hiem-post218025.html?fbclid=IwY2xjawHmPGBleHRuA2FlbQIxMAABHT5rsLh6pMDBGK5Bco-0zPFJt9sz9Wkpif1VhxRn-0FkryT-cbUrmC-Z5w_aem_G96mTAupj8RBm53WodGDJA",
-"https://www.tinnhanhchungkhoan.vn/bao-hiem-cham-chan-hon-ngan-hang-20-nam-ve-co-so-du-lieu-post241418.html?fbclid=IwY2xjawHmPH9leHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
-"https://www.tinnhanhchungkhoan.vn/nhan-dien-truc-loi-bao-hiem-xe-may-post241657.html?fbclid=IwY2xjawHmPKVleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
-"https://www.tinnhanhchungkhoan.vn/canh-bao-som-rui-ro-cong-ty-bao-hiem-phi-nhan-tho-nho-post243124.html?fbclid=IwY2xjawHmPMFleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
-"https://www.tinnhanhchungkhoan.vn/gian-lan-trong-kinh-doanh-bao-hiem-van-nhuc-nhoi-post227435.html?fbclid=IwY2xjawHmPOJleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g"
-        ];
+      const articleLinks = [
+        "https://www.youtube.com/embed/6nrJ8IK654c",
+        "https://quochoitv.vn/vset-group-chieu-thuc-ve-sau-thoat-xac-226806.htm",
+        "https://quochoitv.vn/thuc-hu-chieu-thuc-dung-dat-gan-no-cua-vsetgroup-226930.htm",
+        "https://www.youtube.com/embed/pB6s4HWVBOo",
+        "https://quochoitv.vn/alo-cu-tri-ngan-hang-bi-to-danh-trao-khai-niem-giua-gui-tiet-kiem-dau-tu-va-mua-bao-hiem-nhan-tho-194410.htm",
+        "https://quochoitv.vn/alo-cu-tri-hang-ngan-nguoi-mat-viec-vi-chinh-quyen-cat-dien-trai-luat-202438.htm",
+        "https://antv.gov.vn/video/an-ninh-voi-cuoc-song-19/bien-tuong-tu-van-ban-bao-hiem-qua-ngan-hang-04EC9A334.html?fbclid=IwY2xjawHmMgpleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
+        "https://antv.gov.vn/video/an-ninh-voi-cuoc-song-19/nhung-hieu-lam-khi-tham-gia-bao-hiem-nhan-tho-273512.html",
+        "https://antv.gov.vn/video/an-ninh-voi-cuoc-song/can-trong-bao-hiem-xe-may-gia-re-230771.html?fbclid=IwY2xjawHmO0pleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
+        "https://www.youtube.com/embed/CNbZ8iraFww",
+        "https://www.tinnhanhchungkhoan.vn/bai-hoc-tu-hai-vu-kien-bao-hiem-lon-post360010.html",
+        "https://www.tinnhanhchungkhoan.vn/vinafco-dang-cung-bao-hiem-bao-vietqbe-phoi-hop-de-bao-lanh-giai-phong-tau-som-nhat-post348498.html?fbclid=IwY2xjawHmLp9leHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://www.tinnhanhchungkhoan.vn/vu-phuong-anh-kien-vinafco-vfc-toa-an-hai-phong-ra-quyet-dinh-bat-giu-tau-morning-post348436.html?fbclid=IwY2xjawHmLw1leHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://quochoitv.vn/alo-cu-tri-hang-ngan-nguoi-mat-viec-vi-chinh-quyen-cat-dien-trai-luat-202438.htm",
+        "https://www.youtube.com/embed/VPoqsQLkm1U",
+        "https://xe.baogiaothong.vn/o-to-bi-set-danh-co-duoc-boi-thuong-bao-hiem-192240827160331992.htm",
+        "https://www.tinnhanhchungkhoan.vn/xem-quay-tu-van-bao-hiem-tai-ngan-hang-post345973.html?fbclid=IwY2xjawHmL1NleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://m.tinnhanhchungkhoan.vn/dung-ban-san-pham-bao-hiem-nuoc-di-dang-chang-dung-post345097.amp?fbclid=IwY2xjawHmL3dleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://xe.baogiaothong.vn/tranh-cai-viec-bao-hiem-chi-boi-thuong-sua-xe-sau-tai-nan-192240509222454617.htm?fbclid=IwY2xjawHmL6BleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
+        "https://www.tinnhanhchungkhoan.vn/tiep-dien-chieu-tro-mao-danh-bao-hiem-de-lua-dao-post334686.html?fbclid=IwY2xjawHmMBVleHRuA2FlbQIxMAABHT5rsLh6pMDBGK5Bco-0zPFJt9sz9Wkpif1VhxRn-0FkryT-cbUrmC-Z5w_aem_G96mTAupj8RBm53WodGDJA",
+        "https://xe.baogiaothong.vn/bao-hiem-bsh-bi-to-chay-y-boi-thuong-sau-vu-o-to-tong-vao-dan-trau-192231130115754674.htm?fbclid=IwY2xjawHmMFtleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
+        "https://www.tinnhanhchungkhoan.vn/chua-het-ban-khoan-ban-bao-hiem-lien-ket-dau-tu-post334184.html?fbclid=IwY2xjawHmMKtleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
+        "https://vneconomy.vn/khoang-trong-bao-hiem-chay-no-tu-tham-hoa-chung-cu-mini-khuong-ha.htm?fbclid=IwY2xjawHmMNlleHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
+        "https://www.tinnhanhchungkhoan.vn/loi-he-thong-trong-ban-bao-hiem-qua-ngan-hang-post329975.html?fbclid=IwY2xjawHmMQNleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://www.tinnhanhchungkhoan.vn/khi-nha-bao-hiem-khong-trung-thuc-post329111.html?fbclid=IwY2xjawHmMSVleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://www.tinnhanhchungkhoan.vn/bi-an-so-lieu-tu-choi-chi-tra-bao-hiem-post323623.html?fbclid=IwY2xjawHmMVRleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://xe.baogiaothong.vn/nguoi-vay-mua-o-to-tra-gop-to-ngan-hang-lam-thu-192589939.htm",
+        "https://www.tinnhanhchungkhoan.vn/them-luu-y-ve-hop-dong-bao-hiem-nhan-tho-post320547.html?fbclid=IwY2xjawHmMe5leHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://vnexpress.net/mua-bao-hiem-vi-ca-ne-4592652.html?fbclid=IwY2xjawHmMlFleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
+        "https://vnexpress.net/bi-lua-mua-bao-hiem-4591856.html?fbclid=IwY2xjawHmMmlleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://nhipsongdoanhnghiep.laodongcongdoan.vn/dien-vien-ngoc-lan-so-mat-tien-ty-khi-mua-bao-hiem-chuyen-gia-noi-gi-94515.html?fbclid=IwY2xjawHmMopleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://xe.baogiaothong.vn/co-nen-mua-o-to-thanh-ly-tu-ngan-hang-192585752.htm",
 
-        let count = 0; 
+        "https://www.phunuonline.com.vn/vi-sao-xe-bi-ngap-nuoc-bao-hiem-khong-boi-thuong-a1479358.html",
+        "https://www.tinnhanhchungkhoan.vn/chua-het-ban-khoan-co-nen-bo-bao-hiem-bat-buoc-xe-may-post306996.html?fbclid=IwY2xjawHmNF9leHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
+        "https://www.tinnhanhchungkhoan.vn/doanh-nghiep-bao-hiem-se-phai-cong-khai-them-nhieu-thong-tin-nong-post304624.html?fbclid=IwY2xjawHmNIxleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://www.tinnhanhchungkhoan.vn/can-ghi-ro-hop-dong-bao-hiem-khong-phai-la-hop-dong-gui-tien-post304128.html?fbclid=IwY2xjawHmNTlleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
+        "https://www.tinnhanhchungkhoan.vn/cong-ty-bao-hiem-va-van-hoa-chia-tay-dai-ly-post302714.html?fbclid=IwY2xjawHmNZJleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://xe.baogiaothong.vn/loi-dung-34so-0-tuyet-doi34-nong-do-con-bao-hiem-bsh-choi-bo-trach-nhiem-192556965.htm",
+        "https://www.tinnhanhchungkhoan.vn/bao-hiem-lien-quan-toi-covid-van-nong-post299101.html?fbclid=IwY2xjawHmNf9leHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
+        "https://www.tinnhanhchungkhoan.vn/nha-bao-hiem-van-quen-dieu-khoan-loai-tru-post298469.html?fbclid=IwY2xjawHmNi5leHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://www.tinnhanhchungkhoan.vn/gian-nan-tim-tung-tich-tu-van-vien-post297040.html?fbclid=IwY2xjawHmNpJleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://www.tinnhanhchungkhoan.vn/tranh-cai-bao-hiem-siet-vi-pham-toc-do-post295506.html?fbclid=IwY2xjawHmNqtleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://xe.baogiaothong.vn/cong-ty-bao-hiem-se-tu-choi-bao-hiem-pin-xe-dien-trong-truong-hop-nao-192549647.htm",
+        "https://xe.baogiaothong.vn/o-to-dien-duoc-mua-bao-hiem-vat-chat-nhu-xe-truyen-thong-192549240.htm",
+        "https://www.tinnhanhchungkhoan.vn/nguoi-mua-bao-hiem-xe-buoc-quen-voi-tach-vu-post291524.html?fbclid=IwY2xjawHmN0BleHRuA2FlbQIxMAABHWmIuJFxvcRjOEYUkUvmuBfk01jS5-JZcS3SJKoZfeRjMPX289Kb4_mOcA_aem_JA-rLm0XYPC4HIImbcyrhA",
+        "https://xe.baogiaothong.vn/cho-phep-keo-dai-bao-hiem-cho-xe-phai-34dap-chieu34-do-gian-cach-xa-hoi-192544382.htm",
+        "https://www.tinnhanhchungkhoan.vn/bao-hiem-can-co-che-thuong-luong-hoa-giai-chuyen-biet-post287015.html?fbclid=IwY2xjawHmN5JleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
+        "https://www.tinnhanhchungkhoan.vn/nhu-cau-su-dung-dich-vu-phu-tro-bao-hiem-rat-cao-post287013.html?fbclid=IwY2xjawHmN6pleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
+        "https://www.tinnhanhchungkhoan.vn/nhu-cau-su-dung-dich-vu-phu-tro-bao-hiem-rat-cao-post287013.html",
+        "https://xe.baogiaothong.vn/bao-hiem-pjico-ha-nam-bi-khach-hang-khieu-nai-vi-cham-tre-boi-thuong-192527568.htm",
+        "https://www.tinnhanhchungkhoan.vn/cong-ty-bao-hiem-se-khong-con-xau-che-tot-khoe-post282051.html?fbclid=IwY2xjawHmOHJleHRuA2FlbQIxMAABHWmIuJFxvcRjOEYUkUvmuBfk01jS5-JZcS3SJKoZfeRjMPX289Kb4_mOcA_aem_JA-rLm0XYPC4HIImbcyrhA",
+        "https://www.tinnhanhchungkhoan.vn/de-xuat-nha-nuoc-ho-tro-bao-hiem-vi-mo-post282610.html?fbclid=IwY2xjawHmOKZleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://www.tinnhanhchungkhoan.vn/144-vu-an-bao-hiem-hon-356-ty-dong-cong-ty-bao-hiem-tra-khach-hang-post283307.html?fbclid=IwY2xjawHmOMRleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
+        "https://www.tinnhanhchungkhoan.vn/du-thao-luat-kinh-doanh-bao-hiem-sua-doi-bo-quy-dinh-hiep-hoi-quan-ly-dai-ly-bao-hiem-post280840.html?fbclid=IwY2xjawHmOQFleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
+        "https://www.tinnhanhchungkhoan.vn/bao-hiem-don-cu-huych-chinh-sach-post280150.html?fbclid=IwY2xjawHmOSxleHRuA2FlbQIxMAABHT5rsLh6pMDBGK5Bco-0zPFJt9sz9Wkpif1VhxRn-0FkryT-cbUrmC-Z5w_aem_G96mTAupj8RBm53WodGDJA",
+        "https://xe.baogiaothong.vn/dang-gian-cach-xa-hoi-giam-dinh-vien-bao-hiem-co-duoc-den-hien-truong-192521391.htm",
+        "https://www.tinnhanhchungkhoan.vn/than-trong-cac-hinh-thuc-gian-lan-bao-hiem-moi-post276626.html?fbclid=IwY2xjawHmOXhleHRuA2FlbQIxMAABHWmIuJFxvcRjOEYUkUvmuBfk01jS5-JZcS3SJKoZfeRjMPX289Kb4_mOcA_aem_JA-rLm0XYPC4HIImbcyrhA",
+        "https://xe.baogiaothong.vn/mua-2-bao-hiem-cho-mot-xe-khi-tai-nan-co-duoc-boi-thuong-gap-doi-192520128.htm",
+        "https://xe.baogiaothong.vn/go-noi-oan-bi-tu-choi-boi-thuong-bao-hiem-vi-trong-mau-co-con-192517295.htm",
+        "https://www.tinnhanhchungkhoan.vn/lai-ngong-he-thong-du-lieu-chung-bao-hiem-post274660.html?fbclid=IwY2xjawHmOiZleHRuA2FlbQIxMAABHYmYE7GzkeQHcdrCLtYvQoQxjuESJltKUeXMbmMo_901g4HMS0WidgcXqg_aem_7pKBDF5KpC9wlrz9Gh6GlA",
+        "https://www.tinnhanhchungkhoan.vn/jetcare-lazada-khuyen-mai-bao-hiem-xe-cuc-bao-hiem-len-tieng-post275087.html?fbclid=IwY2xjawHmOkxleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
+        "https://xe.baogiaothong.vn/chu-xe-o-to-lien-tiep-khoi-kien-doanh-nghiep-bao-hiem-192514168.htm",
+        "https://baodautu.vn/mua-bao-hiem-dien-tu-nhung-van-bi-phat-d139955.html?fbclid=IwY2xjawHmOp5leHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
+        "https://www.tinnhanhchungkhoan.vn/uoc-giam-hon-182-ty-dong-phi-bao-hiem-xe-khach-vi-covid-post252440.html?fbclid=IwY2xjawHmOshleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
+        "https://www.tinnhanhchungkhoan.vn/dang-sau-nhung-hop-dong-bao-hiem-mo-coi-post253991.html?fbclid=IwY2xjawHmOvlleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://www.tinnhanhchungkhoan.vn/khi-hop-dong-bao-hiem-hieu-sao-cung-duoc-post251784.html?fbclid=IwY2xjawHmOxxleHRuA2FlbQIxMAABHRZxSFpsGMRDxoQoYFuAezYD2ApDd2eJzbxYLlyZy8fPgg9ujo0iXSs17g_aem_TIK_DvjIni_8U1pf5zkJkg",
+        "https://www.tinnhanhchungkhoan.vn/cap-an-chi-bao-hiem-xe-may-online-tai-sao-khong-post240614.html?fbclid=IwY2xjawHmO21leHRuA2FlbQIxMAABHcNT-U3LBtFSA1BA7lHQAH1KZk0fncGpBkf6BycHWbZyaXy14yQWVfnB7g_aem_4PHqVrGhUXMTeqRgxSB-_Q",
+        "https://www.tinnhanhchungkhoan.vn/bao-hiem-xe-may-co-chi-de-doi-pho-post240378.html?fbclid=IwY2xjawHmO45leHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://www.tinnhanhchungkhoan.vn/vics-corp-tien-phong-trong-linh-vuc-phu-tro-bao-hiem-post227477.html?fbclid=IwY2xjawHmO8JleHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://www.tinnhanhchungkhoan.vn/thoi-gian-cach-ly-khach-hang-cua-doanh-nghiep-bao-hiem-phi-nhan-tho-co-duoc-giam-hoan-phi-post237543.html?fbclid=IwY2xjawHmO_NleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+        "https://www.tinnhanhchungkhoan.vn/bao-hiem-xe-may-lai-khung-nhung-khong-man-ma-post241150.html?fbclid=IwY2xjawHmPBhleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://znews.vn/cong-ty-bao-hiem-tu-choi-boi-thuong-bao-hiem-via-he-dung-hay-sai-post1086872.html?fbclid=IwY2xjawHmPDpleHRuA2FlbQIxMAABHdPTPlbqNZv2jz-8YcuN_vgMEbCNYq-axiJyhebNWmTBoNkl8Yk7Lz6PeQ_aem_7JkyC0MXWIVassB5wgUcKw",
+        "https://www.tinnhanhchungkhoan.vn/lieu-co-can-hiep-hoi-phu-tro-bao-hiem-post218025.html?fbclid=IwY2xjawHmPGBleHRuA2FlbQIxMAABHT5rsLh6pMDBGK5Bco-0zPFJt9sz9Wkpif1VhxRn-0FkryT-cbUrmC-Z5w_aem_G96mTAupj8RBm53WodGDJA",
+        "https://www.tinnhanhchungkhoan.vn/bao-hiem-cham-chan-hon-ngan-hang-20-nam-ve-co-so-du-lieu-post241418.html?fbclid=IwY2xjawHmPH9leHRuA2FlbQIxMAABHchUNFz4xiVBx55Qh192AWa2AOl_25A68nOJX72I63B5r9ao8IDzVSB4GA_aem_q4wiUPmtdkUbtTKv8Et5GQ",
+        "https://www.tinnhanhchungkhoan.vn/nhan-dien-truc-loi-bao-hiem-xe-may-post241657.html?fbclid=IwY2xjawHmPKVleHRuA2FlbQIxMAABHaU1gBXc_FVogkvOfdExjmNmlLYKOyyOWVgSwChVHszeGOwc5x-3XAHi2w_aem_fSzXMqvLFbp9dLfPUgI5Dw",
+        "https://www.tinnhanhchungkhoan.vn/canh-bao-som-rui-ro-cong-ty-bao-hiem-phi-nhan-tho-nho-post243124.html?fbclid=IwY2xjawHmPMFleHRuA2FlbQIxMAABHdg7Q99HhQDW3mezhLSkKaaIyekLfmcSHCgkYeRQ8HQNp_PL_R9i76E8_Q_aem_KgvLcmHxhwty8bclcIX6Ew",
+        "https://www.tinnhanhchungkhoan.vn/gian-lan-trong-kinh-doanh-bao-hiem-van-nhuc-nhoi-post227435.html?fbclid=IwY2xjawHmPOJleHRuA2FlbQIxMAABHWiuVtk5uCNYYMJf_NAqpFXDmnD78QUkSMGrsu1c_5p0wzGwBU-tAAiX2A_aem_WfFDHDsz9LpuEDeK3EQH8g",
+      ];
 
-        function loadArticle() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const articleIndex = parseInt(urlParams.get('article')) || 0; 
-            
-            if (articleIndex === 0) {
-                
-                document.getElementById('article-frame').src = "index.html"; 
-                count = 0;
-            } else {
-                
-                count = Math.max(articleIndex - 1, 0);
-                if (count < articleLinks.length) {
-                    document.getElementById('article-frame').src = articleLinks[count];
-                } else {
-                    alert("Bài báo không tồn tại.");
-                }
-            }
+      let count = 0;
+
+      function loadArticle() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleIndex = parseInt(urlParams.get("article")) || 0;
+
+        if (articleIndex === 0) {
+          document.getElementById("article-frame").src = "index.html";
+          count = 0;
+        } else {
+          count = Math.max(articleIndex - 1, 0);
+          if (count < articleLinks.length) {
+            document.getElementById("article-frame").src = articleLinks[count];
+          } else {
+            alert("Bài báo không tồn tại.");
+          }
         }
-        
+      }
 
-        function nextPage() {
-            if (count < articleLinks.length - 1) {
-                count++;
-                document.getElementById('article-frame').src = articleLinks[count];
-                window.history.pushState({}, "", `?article=${count + 1}`);
-            } else {
-                alert("Bạn đã xem hết các bài báo.");
-            }
+      function nextPage() {
+        if (count < articleLinks.length - 1) {
+          count++;
+          document.getElementById("article-frame").src = articleLinks[count];
+          window.history.pushState({}, "", `?article=${count + 1}`);
+        } else {
+          alert("Bạn đã xem hết các bài báo.");
         }
-        window.addEventListener('popstate', (event) => {
-            loadArticle();
-        });
-        
+      }
+      window.addEventListener("popstate", (event) => {
+        loadArticle();
+      });
 
-        function goBack() {
-            if (count > 0) {
-                count--;
-                document.getElementById('article-frame').src = articleLinks[count];
-            } else {
-                window.location.href = "index.html"; 
-            }
+      function goBack() {
+        if (count > 0) {
+          count--;
+          document.getElementById("article-frame").src = articleLinks[count];
+        } else {
+          window.location.href = "index.html";
         }
-        
+      }
     </script>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
 
-        #content {
-            flex: 1;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-        }
+      #content {
+        flex: 1;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
 
+      iframe {
+        width: 100%;
+        height: 100%; /* Chiếm toàn bộ chiều cao của phần tử chứa */
+        border: none;
+      }
+
+      /* Nút mũi tên chuyển trang */
+      .next-page {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .next-page button,
+      .go-back button {
+        background-color: #81a1c1;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .next-page button i,
+      .go-back button i {
+        margin-right: 8px;
+      }
+
+      /* Nút mũi tên trái quay lại */
+      .go-back {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      /* Điều chỉnh kích thước nút trên màn hình di động */
+      @media (max-width: 768px) {
         iframe {
-            width: 100%;
-            height: 100%; /* Chiếm toàn bộ chiều cao của phần tử chứa */
-            border: none;
+          height: 100vh; /* Chiếm toàn bộ chiều cao màn hình trên di động */
         }
 
-        /* Nút mũi tên chuyển trang */
+        .next-page button,
+        .go-back button {
+          padding: 10px 20px;
+          font-size: 16px; /* Điều chỉnh font-size cho màn hình nhỏ */
+        }
+
         .next-page {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
+          bottom: 10px;
+          right: 10px;
         }
 
-        .next-page button, .go-back button {
-            background-color: #81a1c1;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .next-page button i, .go-back button i {
-            margin-right: 8px;
-        }
-
-        /* Nút mũi tên trái quay lại */
         .go-back {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+          top: 10px;
+          left: 10px;
+        }
+      }
+
+      /* Nếu màn hình rất nhỏ, như trên điện thoại */
+      @media (max-width: 480px) {
+        iframe {
+          height: 100vh; /* Chiếm toàn bộ chiều cao màn hình điện thoại */
         }
 
-        /* Điều chỉnh kích thước nút trên màn hình di động */
-        @media (max-width: 768px) {
-            iframe {
-                height: 100vh; /* Chiếm toàn bộ chiều cao màn hình trên di động */
-            }
-
-            .next-page button, .go-back button {
-                padding: 10px 20px;
-                font-size: 16px; /* Điều chỉnh font-size cho màn hình nhỏ */
-            }
-
-            .next-page {
-                bottom: 10px;
-                right: 10px;
-            }
-
-            .go-back {
-                top: 10px;
-                left: 10px;
-            }
+        .next-page button,
+        .go-back button {
+          padding: 8px 16px;
+          font-size: 14px; /* Giảm font-size cho màn hình nhỏ */
         }
-
-        /* Nếu màn hình rất nhỏ, như trên điện thoại */
-        @media (max-width: 480px) {
-            iframe {
-                height: 100vh; /* Chiếm toàn bộ chiều cao màn hình điện thoại */
-            }
-
-            .next-page button, .go-back button {
-                padding: 8px 16px;
-                font-size: 14px; /* Giảm font-size cho màn hình nhỏ */
-            }
-        }
+      }
     </style>
-</head>
-<body onload="loadArticle()">
-    <div id="content" style="background-color: #ffffff;">
-        <!-- Iframe để hiển thị bài báo -->
-        <iframe id="article-frame" src="" style="border: none;"></iframe>
+  </head>
+  <body onload="loadArticle()">
+    <div id="content" style="background-color: #ffffff">
+      <!-- Iframe để hiển thị bài báo -->
+      <iframe id="article-frame" src="" style="border: none"></iframe>
     </div>
-    
+
     <!-- Nút mũi tên chuyển trang -->
     <div class="next-page">
-        <button onclick="nextPage()"><i class="fas fa-arrow-right"></i></button>
+      <button onclick="nextPage()"><i class="fas fa-arrow-right"></i></button>
     </div>
-    
+
     <!-- Nút mũi tên trái để quay lại trang CV -->
-    <div class="go-back" style="position: absolute; top: 20px; left: 20px;">
-        <button onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
+    <div class="go-back" style="position: absolute; top: 20px; left: 20px">
+      <button onclick="goBack()"><i class="fas fa-arrow-left"></i></button>
     </div>
-</body>
+  </body>
 </html>
