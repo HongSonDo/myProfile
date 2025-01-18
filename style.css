@@ -27,7 +27,7 @@ body {
 .next-page {
   position: fixed; /* Giữ vị trí cố định */
   top: 10px; /* Cách phía trên 10px */
-  right: 10px; /* Cách phía phải 10px */
+  right: 0px; /* Cách phía phải 10px */
   color: #000000; /* Chữ trắng xám */
   padding: 10px 20px; /* Khoảng cách bên trong nút */
   border: none; /* Loại bỏ viền */
