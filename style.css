@@ -167,3 +167,13 @@ body {
       font-size: 13px;
   }
 }
+.next-page a i {
+  font-size: 20px;
+  color: white;
+  animation: arrowMove 0.9s infinite alternate;
+}
+
+@keyframes arrowMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(15px); }
+}
