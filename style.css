@@ -177,3 +177,18 @@ body {
   0% { transform: translateX(0); }
   100% { transform: translateX(15px); }
 }
+.animated-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  gap: 8px;
+  animation: arrowMove 0.9s infinite alternate;
+}
+
+@keyframes arrowMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(15px); }
+}
